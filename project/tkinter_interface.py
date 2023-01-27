@@ -65,5 +65,6 @@ update_display(recent_files)
 
 search_bar.bind("<Return>", lambda event: search(recent_files))
 tree.bind("<Double-Button-1>", lambda event: open_file(event))
+calendar.bind("<<DateEntrySelected>>", lambda event: search(recent_files))
 
 root.mainloop()

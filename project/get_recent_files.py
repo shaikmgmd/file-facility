@@ -3,9 +3,10 @@ import time as time
 
 
 def get_recent_files(path):
+    print("File processing...")
     root_folder = path
     current_time = time.time()
-    time_to_substract = 10*(24 * 60 * 60)
+    time_to_substract = 30*(24 * 60 * 60)
     recent_files = []
 
     include_file_exts = [".txt", ".doc", ".docx",
@@ -32,8 +33,10 @@ def get_recent_files(path):
             else:
                 recent_files.append((curr_file_path, None, None, None))
 
+    print("File processing soon completed...")
     recent_files = [file for file in recent_files if file[2]
                     is not None and file[3] is not None]
     recent_files.sort(key=lambda x: x[2], reverse=True)
 
+    print("File processing completed.")
     return recent_files
